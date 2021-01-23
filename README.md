@@ -10,4 +10,13 @@ composer install
 npm install
 npm run dev
 docker-compose up -d
+docker exec Marketplace php artisan migrate
 ```
+
+TODO 
+1) seeds
+2) validation AdController Request
+3) creating ads
+4) query builder class for elasticsearch
+5) role model
+... 
