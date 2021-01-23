@@ -15,7 +15,7 @@ services:
       SERVICE_TAGS: dev
     working_dir: /var/www
     volumes:
-       - nfsmount:/var/www
+       - "./:/var/www"
        - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini:delegated
     networks:
       - app-network
@@ -30,7 +30,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - nfsmount:/var/www
+      - "./:/var/www"
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/:delegated
     networks:
       - app-network
@@ -98,10 +98,10 @@ networks:
     driver: bridge
 
 #Volumes
-volumes:
-  nfsmount:
-      driver: local
-      driver_opts:
-          type: nfs
-          o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
-          device: ":/System/Volumes/Data/${PWD}"
+# volumes:
+#   nfsmount:
+#       driver: local
+#       driver_opts:
+#           type: nfs
+#           o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+#           device: ":/System/Volumes/Data/${PWD}"
