@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Database\Traits\DumpSql;
 
 class CategorySeeder extends Seeder
 {
+	use DumpSql;
     /**
      * Run the database seeds.
      *
@@ -13,6 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $this->dump('categories.sql');
     }
 }

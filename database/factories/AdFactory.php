@@ -25,15 +25,15 @@ class AdFactory extends Factory
     {
         return [
             'name' => $this->faker->text(15),
-            'category_id' => rand(1, 10),
-            'city_id' => rand(1023, 4627),
+            'category_id' => rand(1, 15),
+            'city_id' => rand(1, 3605),
             'description' => $this->faker->text(500),
             'publish_date' => $this->faker->dateTimeBetween('-30 day', 'now'),
             'cost' => rand(34, 43873),
-            'user_id' => rand(1, 10),
+            'user_id' => rand(1, 20),
             'views_count' => rand(0, 18),
             'photos_count' => rand(0, 10),
-            'status' => 0,
+            'status' => $this->faker->randomElement([0, 10, 50, 100, 200]),
         ];
     }
 }

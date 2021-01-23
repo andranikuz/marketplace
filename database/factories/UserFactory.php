@@ -21,11 +21,15 @@ class UserFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    { 
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->firstname,
+            'lastname' => $this->faker->lastname,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
+            'phone' => '+7('.rand(100, 999).')-'.rand(100, 999).'-'.rand(1000, 9999),
+            'role' => 1,
+            'status' => 50,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];

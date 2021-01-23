@@ -1,13 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use App\Database\Traits\DumpSql;
 
-class RegionSeeder extends Seeder
+class UserSeeder extends Seeder
 {
-	use DumpSql;
     /**
      * Run the database seeds.
      *
@@ -15,6 +13,6 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
-        $this->dump('regions.sql');
+        User::factory()->count(20)->create();
     }
 }
